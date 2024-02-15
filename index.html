@@ -1,149 +1,462 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
     <title>Bootstrap</title>
-</head>
+  </head>
 
-<body>
-    
-    <div class="p-5">
-      <div class=" table-responsive rounded-3 shadow ">
-        <table class=" table table-sm table-striped table-hover shadow border rounded-3 col-2 ">
-            <thead class="table-primary border">
-                <tr class="p-5">
-                    <th class="text-light col-3">Class name</th>
-                    <th class="text-light col-2">Type</th>
-                    <th class="text-light col-2">Hours</th>
-                    <th class="text-light col-2">Trainer</th>
-                    <th class="text-light col-2">Spots</th>
-                </tr>
-            </thead>
+  <body>
+    <div class=" p-5" style="height:1000px;">
+      <div class="table-responsive rounded-3 shadow border overflow-hidden overflow-y-scroll h-50">
+        <table class="table table-striped table-hover shadow  ">
+          <thead class="table-primary">
+            <tr class="p-5">
+              <th class="text-light col-2 bg-primary">Actions</th>
+              <th class="text-light col-3 bg-primary">Class name</th>
+              <th class="text-light col-2 bg-primary">Type</th>
+              <th class="text-light col-2 bg-primary">Hours</th>
+              <th class="text-light col-2 bg-primary">Trainer</th>
+              <th class="text-light col-2 bg-primary">Spots</th>
+            </tr>
+          </thead>
             <tbody>
-                
-                <tr>
-                    <td>Jose Santos</td>
-                    <td>Boxing</td>
-                    <td>07:00h AM</td>
-                    <td>Tesa</td>
-                    <td>17</td>
-                </tr>
-                <tr>
-                    <td>Jesus Cristovon</td>
-                    <td>Yoga</td>
-                    <td>08:00h AM</td>
-                    <td>Tesa</td>
-                    <td>14</td>
-                </tr>
-                <tr>
-                    <td>Jesus Costa</td>
-                    <td>Gym</td>
-                    <td>09:00h AM</td>
-                    <td>Wilson</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Jose Alfredo</td>
-                    <td>Dance</td>
-                    <td>11:00h AM</td>
-                    <td>Robin</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Jesus Rodrigues</td>
-                    <td>Gym</td>
-                    <td>09:00h AM</td>
-                    <td>Wilson</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Maria Helena</td>
-                    <td>Dance</td>
-                    <td>12:00h AM</td>
-                    <td>Wilson</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Jesus Alvaro</td>
-                    <td>Gym</td>
-                    <td>11:00h AM</td>
-                    <td>Tesa</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Jose Carlos</td>
-                    <td>Yoga</td>
-                    <td>11:00h AM</td>
-                    <td>Robin</td>
-                    <td>10</td>
-                </tr>
-                        <tr>
-                    <td>Jose Santos</td>
-                    <td>Boxing</td>
-                    <td>07:00h AM</td>
-                    <td>Tesa</td>
-                    <td>17</td>
-                </tr>
-                <tr>
-                    <td>Jesus Cristovon</td>
-                    <td>Yoga</td>
-                    <td>08:00h AM</td>
-                    <td>Tesa</td>
-                    <td>14</td>
-                </tr>
-                <tr>
-                    <td>Jesus Costa</td>
-                    <td>Gym</td>
-                    <td>09:00h AM</td>
-                    <td>Wilson</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Jose Alfredo</td>
-                    <td>Dance</td>
-                    <td>11:00h AM</td>
-                    <td>Robin</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Jesus Rodrigues</td>
-                    <td>Gym</td>
-                    <td>09:00h AM</td>
-                    <td>Wilson</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Maria Helena</td>
-                    <td>Dance</td>
-                    <td>12:00h AM</td>
-                    <td>Wilson</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Jesus Alvaro</td>
-                    <td>Gym</td>
-                    <td>11:00h AM</td>
-                    <td>Tesa</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Jose Carlos</td>
-                    <td>Yoga</td>
-                    <td>11:00h AM</td>
-                    <td>Robin</td>
-                    <td>10</td>
-                </tr>
+              <tr>
+
+                <div id="janelaModal" class="modal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                        <h3 class="modal-title">Confirmação</h3>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+
+                      <div class="modal-body">
+                        <p>Tem certeza que deseja excluir este item?</p>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="bnt btn-close" data-bs-dismiss="modal">Sim</button>
+                        <button type="button" class="bnt btn-close" data-bs-dismiss="modal">Não</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jose Santos</td>
+                <td>Boxing</td>
+                <td>07:00h AM</td>
+                <td>Tesa</td>
+                <td>17</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Cristovon</td>
+                <td>Yoga</td>
+                <td>08:00h AM</td>
+                <td>Tesa</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Costa</td>
+                <td>Gym</td>
+                <td>09:00h AM</td>
+                <td>Wilson</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jose Alfredo</td>
+                <td>Dance</td>
+                <td>11:00h AM</td>
+                <td>Robin</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Rodrigues</td>
+                <td>Gym</td>
+                <td>09:00h AM</td>
+                <td>Wilson</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Maria Helena</td>
+                <td>Dance</td>
+                <td>12:00h AM</td>
+                <td>Wilson</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Alvaro</td>
+                <td>Gym</td>
+                <td>11:00h AM</td>
+                <td>Tesa</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jose Carlos</td>
+                <td>Yoga</td>
+                <td>11:00h AM</td>
+                <td>Robin</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jose Santos</td>
+                <td>Boxing</td>
+                <td>07:00h AM</td>
+                <td>Tesa</td>
+                <td>17</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Cristovon</td>
+                <td>Yoga</td>
+                <td>08:00h AM</td>
+                <td>Tesa</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Costa</td>
+                <td>Gym</td>
+                <td>09:00h AM</td>
+                <td>Wilson</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jose Alfredo</td>
+                <td>Dance</td>
+                <td>11:00h AM</td>
+                <td>Robin</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Rodrigues</td>
+                <td>Gym</td>
+                <td>09:00h AM</td>
+                <td>Wilson</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Maria Helena</td>
+                <td>Dance</td>
+                <td>12:00h AM</td>
+                <td>Wilson</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jesus Alvaro</td>
+                <td>Gym</td>
+                <td>11:00h AM</td>
+                <td>Tesa</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Jose Carlos</td>
+                <td>Yoga</td>
+                <td>11:00h AM</td>
+                <td>Robin</td>
+                <td>10</td>
+              </tr>
+
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
+              <tr>
+                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
+                <td>Celula 1</td>
+                <td>Celula 2</td>
+                <td>Celula 3</td>
+                <td>Celula 4</td>
+                <td>Celula 5</td>
+              </tr>
             </tbody>
-        
+          </div>
         </table>
       </div>
     </div>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
-
+  </body>
 </html>
