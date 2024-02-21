@@ -24,6 +24,7 @@
               <th class="text-light col-2 bg-primary">Trainer</th>
               <th class="text-light col-2 bg-primary">Spots</th>
               <th class="text-light col-2 bg-primary">Settings</th>
+              <th class="text-light col-2 m-4 bg-primary">View</th>
             </tr>
           </thead>
             <tbody>
@@ -105,6 +106,62 @@
                 </div>
               </div>
 
+              <div id="tableView" class="modal fade">
+                <div class="modal-dialog modal-xl">
+                  <div class="modal-content ">
+
+                    <div class="modal-header">
+                      <h3 class="modal-title">View</h3>
+                      <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    
+                    <div class="container">
+                      <form class="">
+                        <div class="row mb-1">
+                        <div class=" mb-1">
+                          <label for="className"></label>
+                          <div class="form-label">Class Name:</div>
+                          <input  class="form-control" disabled type="" id="className" value="Jose Santos">
+                        </div>
+
+                        
+                        <div class="col-6 mb-1">
+                          <label for="type"></label>
+                          <div class="form-label">Type:</div>
+                          <input class="form-control" disabled type="text" id="type" value="Type">
+                        </div>
+
+                        
+                        <div class=" col-6 mb-1">
+                          <label for="trainer"></label>
+                          <div class="form-label">Trainer:</div>
+                        <input  class="form-control" disabled type="text" id="trainer" value="Tesa">
+                        </div>
+
+                        <div class="col-6 mb-1">
+                          <label for="hours"></label>
+                          <div class="form-label">Hours:</div>
+                          <input class="form-control" disabled type="time" id="hours" value="12:30">                      
+                        </div>
+
+                        <div class="col-6 mb-1">
+                          <label for="sports"></label>
+                          <div class="form-label">Sports:</div>
+                          <input class="form-control" disabled type="text" id="sports" value="Gym">
+                        </div>
+                      </div>
+                      </form>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div></div>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
                 <td>Jose Santos</td>
@@ -113,6 +170,7 @@
                 <td>Tesa</td>
                 <td>17</td>
                 <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -121,6 +179,8 @@
                 <td>08:00h AM</td>
                 <td>Tesa</td>
                 <td>14</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -129,6 +189,8 @@
                 <td>09:00h AM</td>
                 <td>Wilson</td>
                 <td>12</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -137,6 +199,8 @@
                 <td>11:00h AM</td>
                 <td>Robin</td>
                 <td>10</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -145,6 +209,8 @@
                 <td>09:00h AM</td>
                 <td>Wilson</td>
                 <td>12</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -153,6 +219,8 @@
                 <td>12:00h AM</td>
                 <td>Wilson</td>
                 <td>10</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -161,6 +229,8 @@
                 <td>11:00h AM</td>
                 <td>Tesa</td>
                 <td>12</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -169,6 +239,8 @@
                 <td>11:00h AM</td>
                 <td>Robin</td>
                 <td>10</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -177,6 +249,8 @@
                 <td>07:00h AM</td>
                 <td>Tesa</td>
                 <td>17</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -185,6 +259,8 @@
                 <td>08:00h AM</td>
                 <td>Tesa</td>
                 <td>14</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -193,6 +269,8 @@
                 <td>09:00h AM</td>
                 <td>Wilson</td>
                 <td>12</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -201,6 +279,8 @@
                 <td>11:00h AM</td>
                 <td>Robin</td>
                 <td>10</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -209,6 +289,8 @@
                 <td>09:00h AM</td>
                 <td>Wilson</td>
                 <td>12</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
@@ -217,6 +299,8 @@
                 <td>12:00h AM</td>
                 <td>Wilson</td>
                 <td>10</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -225,6 +309,8 @@
                 <td>11:00h AM</td>
                 <td>Tesa</td>
                 <td>12</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -233,6 +319,8 @@
                 <td>11:00h AM</td>
                 <td>Robin</td>
                 <td>10</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
 
               <tr>
@@ -242,6 +330,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -250,6 +340,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -258,6 +350,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -266,6 +360,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -274,6 +370,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -282,6 +380,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -290,6 +390,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -298,6 +400,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -306,6 +410,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -314,6 +420,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -322,6 +430,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -330,6 +440,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -338,6 +450,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -346,6 +460,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -354,6 +470,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -362,6 +480,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -370,6 +490,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -378,6 +500,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -386,6 +510,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -394,6 +520,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -402,6 +530,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -410,6 +540,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -418,6 +550,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -426,6 +560,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -434,6 +570,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -442,6 +580,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -450,6 +590,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -458,6 +600,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -466,6 +610,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -474,6 +620,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -482,6 +630,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -490,6 +640,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -498,6 +650,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
               <tr>
                 <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
@@ -506,6 +660,8 @@
                 <td>Celula 3</td>
                 <td>Celula 4</td>
                 <td>Celula 5</td>
+                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
+                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
               </tr>
             </tbody>
           </div>
