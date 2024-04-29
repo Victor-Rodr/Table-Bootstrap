@@ -1,675 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link
-      rel="stylesheet"href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <title>Bootstrap</title>
-  </head>
 
-  <body>
-    <div class=" p-5" style="height:1000px;">
-      <div class="table-responsive rounded-3 shadow border overflow-hidden overflow-y-scroll h-50">
-        <table class="table table-striped table-hover shadow  ">
-          <thead class="table-primary">
-            <tr class="p-5">
-              <th class="text-light col-2 bg-primary">Actions</th>
-              <th class="text-light col-3 bg-primary">Class name</th>
-              <th class="text-light col-2 bg-primary">Type</th>
-              <th class="text-light col-2 bg-primary">Hours</th>
-              <th class="text-light col-2 bg-primary">Trainer</th>
-              <th class="text-light col-2 bg-primary">Spots</th>
-              <th class="text-light col-2 bg-primary">Settings</th>
-              <th class="text-light col-2 m-4 bg-primary">View</th>
-            </tr>
-          </thead>
-            <tbody>
-              <div id="janelaModal" class="modal">
-                <div class="modal-dialog">
-                  <div class="modal-content">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
 
-                    <div class="modal-header">
-                      <h3 class="modal-title">Confirmação</h3>
-                      <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
-                    </div>
+<body>
+  <div class="p-5" style="height:1000px;">
+    <div class="table-responsive rounded-3 shadow border overflow-hidden overflow-y-scroll h-50">
+      <table class="table table-striped table-hover shadow">
+        <thead class="table-primary">
+          <!-- Cabeçalho da tabela -->
+          <tr>
+            <th class="text-light col-2 bg-primary">Actions</th>
+            <th class="text-light col-2 bg-primary">addition</th>
+            <th class="text-light col-3 bg-primary">Class name</th>
+            <th class="text-light col-2 bg-primary">Type</th>
+            <th class="text-light col-2 bg-primary">Hours</th>
+            <th class="text-light col-2 bg-primary">Trainer</th>
+            <th class="text-light col-2 bg-primary">Spots</th>
+            <th class="text-light col-2 bg-primary">Settings</th>
+            <th class="text-light col-2 m-4 bg-primary">View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Relação de cliente da tabela-->
+          <tr v-for="item in items" :key="item.id">
+            <td @click="abrirEdicaoModal(items)">
+              <i data-bs-toggle="modal" data-bs-target="#janelaModal"
+                class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i>
+            </td>
+            <td @click="abrirEdicaoModal(items)">
+              <i data-bs-toggle="modal" data-bs-target="#tableModal"
+                class=" rounded-1 bi bi-person-plus link-success fs-4 p-3"></i>
+            </td>
+            <td>{{ item.className}}</td>
+            <td>{{ item.type}}</td>
+            <td>{{ item.hours}}</td>
+            <td>{{ item.Trainer}}</td>
+            <td>{{ item.sports}}</td>
+            <td @click="abrirEdicaoModal(item)">
+              <i class="bi bi-pencil-square fs-5 p-2" data-bs-toggle="modal" data-bs-target="#tableModal"></i>
+            </td>
+            <td><i class="bi bi-eye-fill fs-5 p-2" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-                    <div class="modal-body">
-                      <p>Tem certeza que deseja excluir este item?</p>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Sim</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div id="tableModal" class="modal">
-                <div class="modal-dialog modal-xl">
-                  <div class="modal-content">
-
-                    <div class="modal-header">
-                      <h3 class="modal-title">Edit</h3>
-                      <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <div class="container">
-                      <form class="">
-                        <div class="row mb-1">
-                        <div class=" mb-1">
-                          <label for="className"></label>
-                          <div class="form-label">Class Name:</div>
-                          <input  class="form-control" type="text" id="className">
-                        </div>
-
-                        
-                        <div class="col-6 mb-1">
-                          <label for="type"></label>
-                          <div class="form-label">Type:</div>
-                          <input class="form-control" type="text" id="type">
-                        </div>
-
-                        
-                        <div class=" col-6 mb-1">
-                          <label for="trainer"></label>
-                          <div class="form-label">Trainer:</div>
-                        <input  class="form-control" type="text" id="trainer" i class="bi bi-clock"></i>
-                        </div>
-
-                        <div class="col-6 mb-1">
-                          <label for="hours"></label>
-                          <div class="form-label">Hours:</div>
-                          <input class="form-control" type="time" id="hours">                      
-                        </div>
-
-                        <div class="col-6 mb-1">
-                          <label for="sports"></label>
-                          <div class="form-label">Sports:</div>
-                          <input class="form-control" type="text" id="sports">
-                        </div>
-                      </div>
-                      </form>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div id="tableView" class="modal fade">
-                <div class="modal-dialog modal-xl">
-                  <div class="modal-content ">
-
-                    <div class="modal-header">
-                      <h3 class="modal-title">View</h3>
-                      <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    
-                    <div class="container">
-                      <form class="">
-                        <div class="row mb-1">
-                        <div class=" mb-1">
-                          <label for="className"></label>
-                          <div class="form-label">Class Name:</div>
-                          <input  class="form-control" disabled type="" id="className" value="Jose Santos">
-                        </div>
-
-                        
-                        <div class="col-6 mb-1">
-                          <label for="type"></label>
-                          <div class="form-label">Type:</div>
-                          <input class="form-control" disabled type="text" id="type" value="Type">
-                        </div>
-
-                        
-                        <div class=" col-6 mb-1">
-                          <label for="trainer"></label>
-                          <div class="form-label">Trainer:</div>
-                        <input  class="form-control" disabled type="text" id="trainer" value="Tesa">
-                        </div>
-
-                        <div class="col-6 mb-1">
-                          <label for="hours"></label>
-                          <div class="form-label">Hours:</div>
-                          <input class="form-control" disabled type="time" id="hours" value="12:30">                      
-                        </div>
-
-                        <div class="col-6 mb-1">
-                          <label for="sports"></label>
-                          <div class="form-label">Sports:</div>
-                          <input class="form-control" disabled type="text" id="sports" value="Gym">
-                        </div>
-                      </div>
-                      </form>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-              <div></div>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jose Santos</td>
-                <td>Boxing</td>
-                <td>07:00h AM</td>
-                <td>Tesa</td>
-                <td>17</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Cristovon</td>
-                <td>Yoga</td>
-                <td>08:00h AM</td>
-                <td>Tesa</td>
-                <td>14</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Costa</td>
-                <td>Gym</td>
-                <td>09:00h AM</td>
-                <td>Wilson</td>
-                <td>12</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jose Alfredo</td>
-                <td>Dance</td>
-                <td>11:00h AM</td>
-                <td>Robin</td>
-                <td>10</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Rodrigues</td>
-                <td>Gym</td>
-                <td>09:00h AM</td>
-                <td>Wilson</td>
-                <td>12</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Maria Helena</td>
-                <td>Dance</td>
-                <td>12:00h AM</td>
-                <td>Wilson</td>
-                <td>10</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Alvaro</td>
-                <td>Gym</td>
-                <td>11:00h AM</td>
-                <td>Tesa</td>
-                <td>12</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jose Carlos</td>
-                <td>Yoga</td>
-                <td>11:00h AM</td>
-                <td>Robin</td>
-                <td>10</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jose Santos</td>
-                <td>Boxing</td>
-                <td>07:00h AM</td>
-                <td>Tesa</td>
-                <td>17</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Cristovon</td>
-                <td>Yoga</td>
-                <td>08:00h AM</td>
-                <td>Tesa</td>
-                <td>14</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Costa</td>
-                <td>Gym</td>
-                <td>09:00h AM</td>
-                <td>Wilson</td>
-                <td>12</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jose Alfredo</td>
-                <td>Dance</td>
-                <td>11:00h AM</td>
-                <td>Robin</td>
-                <td>10</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Rodrigues</td>
-                <td>Gym</td>
-                <td>09:00h AM</td>
-                <td>Wilson</td>
-                <td>12</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i class="rounded-1 bi bi-trash3 fs-5 text-light bg-danger p-2"></i></td>
-                <td>Maria Helena</td>
-                <td>Dance</td>
-                <td>12:00h AM</td>
-                <td>Wilson</td>
-                <td>10</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jesus Alvaro</td>
-                <td>Gym</td>
-                <td>11:00h AM</td>
-                <td>Tesa</td>
-                <td>12</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Jose Carlos</td>
-                <td>Yoga</td>
-                <td>11:00h AM</td>
-                <td>Robin</td>
-                <td>10</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-              <tr>
-                <td><i data-bs-toggle="modal" data-bs-target="#janelaModal" type="button" class="rounded-1 bi bi-trash3 text-light bg-danger fs-5 p-2"></i></td>
-                <td>Celula 1</td>
-                <td>Celula 2</td>
-                <td>Celula 3</td>
-                <td>Celula 4</td>
-                <td>Celula 5</td>
-                <td><i class="bi bi-pencil-square fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableModal"></i></td>
-                <td><i class="bi bi-eye-fill fs-5 p-2" type="button" data-bs-toggle="modal" data-bs-target="#tableView"></i></td>
-              </tr>
-            </tbody>
-          </div>
-        </table>
+  <!-- lixeira de excluir itens da tabela -->
+  <div id="janelaModal" class="modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Confirmação</h3>
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja excluir este item?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Sim</button>
+        </div>
       </div>
     </div>
+  </div>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  </body>
+  <!-- Formulário de edição aqui -->
+  <div id="tableModal" class="modal fade">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Edit</h3>
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div id="abrirEdicaoModal" class="modal"></div>
+        <div class="modal-body">
+          <form @submit.prevent="salvaAtualizacao">
+            <div>
+              <div class=" mb-3">
+                <label for="editClassName" class="form-label">Class Name:</label>
+                <input type="text" class="form-control" v-model="editarItem.editClassName" placeholder="class Name">
+              </div>
+            </div>
+            <!-- Layout da tabela de "Edição" (Pelo amor de deus não esquecer que o "col" e filho do "row", e quanto maior o numero menor o objeto) -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="editType" class="form-label">Type:</label>
+                <input type="text" class="form-control" v-model="editarItem.editType" placeholder="Type">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="editHours" class="form-label">Hours:</label>
+                <input type="time" class="form-control" v-model="editarItem.editHours" placeholder="Hours">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="editTrainer" class="form-label">Trainer:</label>
+                <input type="text" class="form-control" v-model="editarItem.editTrainer" placeholder="Trainer">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="editSports" class="form-label">Sports:</label>
+                <input type="text" class="form-control" v-model="editarItem.editSports" placeholder="Sports">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
